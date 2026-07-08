@@ -11,6 +11,8 @@
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Set up by Claude Code](https://img.shields.io/badge/setup-Claude%20Code-D97757)](https://claude.com/claude-code)
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/redwoodmeridian/cicero&root-directory=kit/web)
+
 </div>
 
 ---
@@ -57,14 +59,17 @@ node kit/scripts/apply-config.mjs
 # 2. Build the knowledge base
 node kit/scripts/setup-kb.mjs   # prints XAI_COLLECTION_ID
 
-# 3. Deploy the talking website (docs/WEB.md)
-cd kit/web && railway up
+# 3. Deploy the talking website to Vercel (or Railway) — docs/WEB.md
+cd kit/web && vercel --prod
 
-# 4. Add to any site: one line
+# 4. Add to any site (WordPress, Squarespace, Wix, raw HTML): one line
 #    <script src="https://your-deploy/embed.js" defer></script>
 
-# 5. (optional) Phone — docs/PHONE.md
+# 5. (optional) Phone — deploy the bridge to Railway/Render — docs/PHONE.md
 ```
+
+> Web deploys to **Vercel** in one click. The phone bridge needs a persistent host (Railway/Render/Fly) —
+> Vercel's serverless functions can't hold Twilio's live audio stream open.
 
 ## 🧩 How it works
 

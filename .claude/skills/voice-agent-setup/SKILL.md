@@ -48,8 +48,11 @@ For richer answers, expand the firm's knowledge first (fees, FAQs, jurisdiction 
 and don't take) — pull it from their website and their answers in Step 0.
 
 ## Step 3 — Deploy the widget backend & talking website (`kit/web`)
-Do this first — highest value, works on any funded xAI account. See `docs/WEB.md`. Deploy `kit/web`
-to Railway or Vercel with the xAI + Google env vars. Test a full conversation and a booking.
+Do this first — highest value, works on any funded xAI account. See `docs/WEB.md`.
+**Prefer Vercel** — most firms already have it and it's one click (`cd kit/web && vercel --prod`, or
+GitHub import with Root Directory = `kit/web`). Railway also works. Set the xAI + Google env vars, then
+test a full conversation and a booking. (The phone bridge in Step 5 must go on a persistent host like
+Railway — not Vercel — because it holds a live WebSocket open.)
 
 ## Step 4 — Put the widget on THEIR website (any platform)
 `kit/web` hosts a universal embed at `/embed.js`. Installing it depends on their stack — you handle it:
