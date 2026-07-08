@@ -1,0 +1,10 @@
+node_modules/
+.next/
+.env
+.env.*
+!.env.example
+*.log
+*.pid
+.DS_Store
+kit/scripts/.kb.md
+.vercel/
