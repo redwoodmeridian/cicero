@@ -53,6 +53,9 @@ Do this first — highest value, works on any funded xAI account. See `docs/WEB.
 GitHub import with Root Directory = `kit/web`). Railway also works. Set the xAI + Google env vars, then
 test a full conversation and a booking. (The phone bridge in Step 5 must go on a persistent host like
 Railway — not Vercel — because it holds a live WebSocket open.)
+**Vercel gotcha:** new projects enable "Vercel Authentication" (Deployment Protection) by default,
+which hides the site behind a login. Turn it OFF (Project → Settings → Deployment Protection) or the
+public can't use the widget — do this for the user and confirm the site loads without a login.
 
 ## Step 4 — Put the widget on THEIR website (any platform)
 `kit/web` hosts a universal embed at `/embed.js`. Installing it depends on their stack — you handle it:

@@ -23,6 +23,11 @@ vercel --prod               # deploy to production
 Importing from GitHub instead? In the Vercel dashboard, **New Project → import the repo → set Root
 Directory to `kit/web`**, add the same env vars, deploy.
 
+> ⚠️ **Turn off Deployment Protection** — new Vercel projects enable "Vercel Authentication" by
+> default, which puts a login wall in front of your site (visitors get redirected, the widget can't
+> load). Go to **Project → Settings → Deployment Protection → Vercel Authentication → Disabled**, then
+> redeploy. Your site is meant to be public; your API key still stays server-side.
+
 ## Option B — Railway
 ```bash
 cd kit/web
