@@ -1,10 +1,12 @@
 import { google } from "googleapis";
+import firm from "@/firm.config.json";
 
-// Books an appointment on the demo Google Calendar via the MLA service account.
-// Creds come from env so this runs anywhere (Railway): GOOGLE_SA_JSON (raw JSON),
-// GOOGLE_IMPERSONATE, DEMO_CALENDAR_ID.
+// Books an appointment on the firm's Google Calendar via a service account.
+// Creds from env (works anywhere): GOOGLE_SA_JSON_B64 (or GOOGLE_SA_JSON), GOOGLE_IMPERSONATE, DEMO_CALENDAR_ID.
 
-const TZ = "America/Phoenix";
+const TZ = firm.timezone || "America/New_York";
+const LABEL = firm.booking?.label || "consultation";
+const AGENT_NAME = firm.shortName || firm.name || "the firm";
 
 function calendarClient() {
   const raw = process.env.GOOGLE_SA_JSON_B64
@@ -24,7 +26,7 @@ export type BookArgs = {
   name?: string;
   phone?: string;
   email?: string;
-  start_iso?: string; // ISO 8601, ideally with -07:00 offset
+  start_iso?: string;
   reason?: string;
   duration_min?: number;
 };
@@ -36,16 +38,16 @@ export async function bookAppointment(a: BookArgs) {
 
   const start = new Date(a.start_iso);
   if (isNaN(start.getTime())) return { ok: false, error: "could not understand the time" };
-  const dur = a.duration_min && a.duration_min > 0 ? a.duration_min : 30;
+  const dur = a.duration_min && a.duration_min > 0 ? a.duration_min : firm.booking?.durationMin || 30;
   const end = new Date(start.getTime() + dur * 60000);
 
   const cal = calendarClient();
   const ev = await cal.events.insert({
     calendarId,
     requestBody: {
-      summary: `Free Case Review — ${a.name || "New lead"}`,
+      summary: `${titleCase(LABEL)} — ${a.name || "New lead"}`,
       description:
-        `Booked by the Vantage voice agent.\n` +
+        `Booked by the ${AGENT_NAME} voice agent.\n` +
         `Name: ${a.name || "-"}\nPhone: ${a.phone || "-"}\nEmail: ${a.email || "-"}\n` +
         `Reason: ${a.reason || "-"}`,
       start: { dateTime: start.toISOString(), timeZone: TZ },
@@ -53,10 +55,14 @@ export async function bookAppointment(a: BookArgs) {
     },
   });
 
-  // human-friendly confirmation string in Phoenix time
+  // human-friendly confirmation string, in the FIRM's timezone
   const when = start.toLocaleString("en-US", {
     weekday: "long", month: "long", day: "numeric",
     hour: "numeric", minute: "2-digit", timeZone: TZ,
   });
   return { ok: true, when, link: ev.data.htmlLink };
+}
+
+function titleCase(s: string) {
+  return s.replace(/\b\w/g, (c) => c.toUpperCase());
 }
