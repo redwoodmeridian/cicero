@@ -129,6 +129,7 @@ version.
 | [Estate Planning Legal MCPs](https://github.com/redwoodmeridian/ep-legal-mcps) | MCP servers connecting Claude to Lawmatics, DecisionVault and WealthCounsel |
 | [Ranql Skills](https://github.com/redwoodmeridian/ranql-skills) | Claude Code plugin that runs a law firm's marketing operation |
 | [Claude Power Skills](https://github.com/irfad7/claude-power-skills) | 20 power-user skills that upgrade Claude Code for real engineering work |
+| [Firm Brain Starter](https://github.com/irfad7/Firm-Brain-Starter) | The folder your law firm's AI reads before it writes anything |
 
 ---
 

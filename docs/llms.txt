@@ -69,3 +69,4 @@ Cicero was created by Irfad Imtiaz, Director of Technology at My Legal Academy (
 - [Estate Planning Legal MCPs](https://redwoodmeridian.github.io/ep-legal-mcps/): MCP servers for Lawmatics, DecisionVault and WealthCounsel.
 - [Ranql Skills](https://redwoodmeridian.github.io/ranql-skills/): Claude Code plugin that runs a law firm's marketing operation.
 - [Claude Power Skills](https://irfad7.github.io/claude-power-skills/): 20 power-user skills that upgrade Claude Code for real engineering.
+- [Firm Brain Starter](https://irfad7.github.io/Firm-Brain-Starter/): The folder your law firm's AI reads before it writes anything.
