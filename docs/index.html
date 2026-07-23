@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cicero — Open-Source AI Voice Receptionist for Law Firms (website widget + phone agent)</title>
+<meta name="description" content="Cicero is an open-source AI voice receptionist for law firms: a talking website widget plus an inbound and outbound phone agent that answers, qualifies leads and books consultations to your calendar 24/7. Self-hosted, MIT licensed, set up by Claude in minutes.">
+<meta name="author" content="Irfad Imtiaz">
+<meta name="keywords" content="ai, ai-receptionist, voice-ai, voice-agent, claude, claude-code, law-firm, legal-tech, legaltech, lead-generation, twilio, speech-to-speech, realtime, grok, ai-intake, appointment-booking, answering-service, self-hosted, nextjs, conversational-ai">
+<link rel="canonical" href="https://redwoodmeridian.github.io/cicero/">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Cicero">
+<meta property="og:title" content="Cicero — Open-Source AI Voice Receptionist for Law Firms (website widget + phone agent)">
+<meta property="og:description" content="Cicero is an open-source AI voice receptionist for law firms: a talking website widget plus an inbound and outbound phone agent that answers, qualifies leads and books consultations to your calendar 24/7. Self-hosted, MIT licensed, set up by Claude in minutes.">
+<meta property="og:url" content="https://redwoodmeridian.github.io/cicero/">
+<meta property="og:image" content="https://opengraph.githubassets.com/1/redwoodmeridian/cicero">
+<meta property="article:author" content="https://www.linkedin.com/in/irfadimtiaz/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cicero — Open-Source AI Voice Receptionist for Law Firms (website widget + phone agent)">
+<meta name="twitter:description" content="Cicero is an open-source AI voice receptionist for law firms: a talking website widget plus an inbound and outbound phone agent that answers, qualifies leads and books consultations to your calendar 24/7. Self-hosted, MIT licensed, set up by Claude in minutes.">
+<meta name="twitter:image" content="https://opengraph.githubassets.com/1/redwoodmeridian/cicero">
+
+<link rel="alternate" type="text/plain" href="https://redwoodmeridian.github.io/cicero/llms.txt">
+<style>
+:root{--bg:#fbfaf9;--fg:#1a1815;--mut:#6b645c;--line:#e4e0da;--card:#fff;
+--accent:#c2410c;--accentbg:#fff5ef;--code:#f5f2ef}
+@media(prefers-color-scheme:dark){:root{--bg:#131211;--fg:#eceae7;--mut:#9d968d;
+--line:#2c2926;--card:#1a1917;--accent:#fb923c;--accentbg:#251a12;--code:#1f1d1b}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+font:16px/1.65 ui-sans-serif,-apple-system,"Segoe UI",Inter,system-ui,sans-serif;
+-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+a{color:var(--accent)}
+header{padding:64px 0 40px;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:12px;letter-spacing:.13em;text-transform:uppercase;
+color:var(--mut);font-weight:600;margin:0 0 14px}
+h1{font-size:clamp(30px,5.5vw,44px);line-height:1.13;letter-spacing:-.022em;
+margin:0 0 16px;font-weight:700}
+.lede{font-size:19px;line-height:1.55;color:var(--mut);margin:0 0 26px}
+.lede strong{color:var(--fg);font-weight:600}
+.cta{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-block;padding:10px 18px;border-radius:8px;font-size:14.5px;
+font-weight:600;text-decoration:none;border:1px solid var(--line);color:var(--fg)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+section{padding:40px 0;border-bottom:1px solid var(--line)}
+h2{font-size:23px;letter-spacing:-.016em;margin:0 0 16px;font-weight:650}
+h3{font-size:16px;margin:26px 0 8px;font-weight:650}
+p{margin:0 0 14px}
+ul{margin:0 0 14px;padding-left:20px}li{margin-bottom:7px}
+pre{background:var(--code);border:1px solid var(--line);border-radius:9px;
+padding:14px 16px;overflow-x:auto;font-size:13.5px;line-height:1.55;margin:0 0 14px}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em}
+p code,li code,td code{background:var(--code);padding:1.5px 5px;border-radius:4px}
+.ask{background:var(--accentbg);border-left:3px solid var(--accent);
+border-radius:0 8px 8px 0;padding:13px 16px;margin:0 0 11px;font-size:15px}
+.tw{overflow-x:auto;margin:0 0 14px}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:420px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);
+vertical-align:top}
+th{font-weight:650;color:var(--mut);font-size:12.5px;letter-spacing:.05em;
+text-transform:uppercase}
+details{border:1px solid var(--line);border-radius:9px;padding:13px 16px;
+margin-bottom:9px;background:var(--card)}
+summary{cursor:pointer;font-weight:600;font-size:15.5px}
+details[open] summary{margin-bottom:9px}
+details p:last-child{margin-bottom:0}
+.author{background:var(--card);border:1px solid var(--line);border-radius:11px;
+padding:22px 24px}
+.author h2{margin-bottom:11px}
+footer{padding:30px 0 56px;color:var(--mut);font-size:13.5px}
+.sib{display:grid;gap:9px;grid-template-columns:repeat(auto-fit,minmax(228px,1fr))}
+.sib a{display:block;padding:13px 15px;border:1px solid var(--line);border-radius:9px;
+text-decoration:none;background:var(--card)}
+.sib b{display:block;color:var(--fg);font-size:14.5px;margin-bottom:3px}
+.sib span{color:var(--mut);font-size:13px;line-height:1.45;display:block}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://github.com/irfad7#person",
+      "name": "Irfad Imtiaz",
+      "url": "https://github.com/irfad7",
+      "jobTitle": "Director of Technology",
+      "description": "Irfad Imtiaz is Director of Technology at My Legal Academy, where he builds AI systems that law firms actually run in production. He is also Co-Founder and CTO of Ranql. He publishes open-source Claude Code kits that connect legal and marketing software to AI agents.",
+      "sameAs": [
+        "https://www.linkedin.com/in/irfadimtiaz/",
+        "https://github.com/irfad7"
+      ],
+      "knowsAbout": [
+        "Claude Code",
+        "Anthropic Claude",
+        "AI agents",
+        "Model Context Protocol",
+        "Legal technology",
+        "Meta Marketing API",
+        "Marketing automation",
+        "Law firm operations"
+      ],
+      "worksFor": [
+        {
+          "@id": "https://mylegalacademy.com/#organization"
+        }
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://mylegalacademy.com/#organization",
+      "name": "My Legal Academy",
+      "alternateName": "Redwood Meridian",
+      "url": "https://mylegalacademy.com",
+      "description": "My Legal Academy trains and equips law firm owners to run their firms with AI — through the MLA AI Labs program, done-for-you build engagements, and open-source tooling.",
+      "sameAs": [
+        "https://mylegalacademy.com",
+        "https://github.com/redwoodmeridian"
+      ]
+    },
+    {
+      "@type": [
+        "SoftwareApplication",
+        "SoftwareSourceCode"
+      ],
+      "@id": "https://redwoodmeridian.github.io/cicero/#software",
+      "name": "Cicero",
+      "alternateName": [
+        "AI receptionist for law firms",
+        "AI intake agent for lawyers",
+        "law firm voice AI"
+      ],
+      "url": "https://redwoodmeridian.github.io/cicero/",
+      "codeRepository": "https://github.com/redwoodmeridian/cicero",
+      "description": "Cicero is an open-source AI voice receptionist for law firms: a talking website widget plus an inbound and outbound phone agent that answers, qualifies leads and books consultations to your calendar 24/7. Self-hosted, MIT licensed, set up by Claude in minutes.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "macOS, Windows, Linux",
+      "programmingLanguage": [
+        "TypeScript",
+        "JavaScript"
+      ],
+      "runtimePlatform": "Claude Code",
+      "license": "https://opensource.org/licenses/MIT",
+      "isAccessibleForFree": true,
+      "author": {
+        "@id": "https://github.com/irfad7#person"
+      },
+      "creator": {
+        "@id": "https://github.com/irfad7#person"
+      },
+      "maintainer": {
+        "@id": "https://github.com/irfad7#person"
+      },
+      "copyrightHolder": {
+        "@id": "https://mylegalacademy.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://mylegalacademy.com/#organization"
+      },
+      "keywords": "ai, ai-receptionist, voice-ai, voice-agent, claude, claude-code, law-firm, legal-tech, legaltech, lead-generation, twilio, speech-to-speech, realtime, grok, ai-intake, appointment-booking, answering-service, self-hosted, nextjs, conversational-ai",
+      "dateModified": "2026-07-24",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://redwoodmeridian.github.io/cicero/#website",
+      "url": "https://redwoodmeridian.github.io/cicero/",
+      "name": "Cicero",
+      "description": "Cicero is an open-source AI voice receptionist for law firms: a talking website widget plus an inbound and outbound phone agent that answers, qualifies leads and books consultations to your calendar 24/7. Self-hosted, MIT licensed, set up by Claude in minutes.",
+      "inLanguage": "en",
+      "author": {
+        "@id": "https://github.com/irfad7#person"
+      },
+      "publisher": {
+        "@id": "https://mylegalacademy.com/#organization"
+      },
+      "about": {
+        "@id": "https://redwoodmeridian.github.io/cicero/#software"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://redwoodmeridian.github.io/cicero/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is an AI voice receptionist for a law firm?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It is software that answers your firm's calls and website visitors with a natural spoken conversation, qualifies whether the matter is a good fit, answers questions about fees and practice areas, and books the consultation onto your calendar, without a human picking up. Cicero is an open-source implementation you host yourself."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can it book appointments directly to my calendar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Appointments appear on your Google Calendar during the conversation. There is no form to fill in afterwards and no manual follow-up step."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it work on WordPress, Squarespace or Wix?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, on any site. The widget is a single script tag you paste into your existing site: WordPress, Squarespace, Wix, Webflow or plain HTML. No replatforming."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can it call leads back automatically?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. When a new lead comes in, the outbound agent can call them back within seconds, while they are still warm and still on your site."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where does my data live?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cicero is self-hosted. You deploy it to your own Vercel, Railway or Render account with your own API keys, and the keys never touch the browser. Nothing routes through a vendor's platform."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does Cicero cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The software is free and MIT licensed. You pay only your own usage costs for the voice model, Twilio numbers and minutes, and hosting."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who made Cicero?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Irfad Imtiaz, Director of Technology at My Legal Academy, built and maintains it. My Legal Academy publishes it."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://redwoodmeridian.github.io/cicero/#howto",
+      "name": "How to set up an AI voice receptionist for your law firm",
+      "description": "Cicero is an open-source AI voice receptionist for law firms: a talking website widget plus an inbound and outbound phone agent that answers, qualifies leads and books consultations to your calendar 24/7. Self-hosted, MIT licensed, set up by Claude in minutes.",
+      "totalTime": "PT30M",
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Claude Code"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "An xAI API key"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "A Google account"
+        },
+        {
+          "@type": "HowToTool",
+          "name": "Twilio (optional)"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Clone Cicero and open it in Claude Code",
+          "text": "git clone https://github.com/redwoodmeridian/cicero, cd in, then run claude."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Say: set up my voice agent",
+          "text": "Claude reads your website, asks what you want the agent to do, and builds your firm's knowledge base."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Deploy the talking widget",
+          "text": "Claude deploys the web app to Vercel or Railway and gives you the one-line script tag to drop onto your existing site."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Connect your phone and calendar",
+          "text": "Claude walks you through Twilio end to end and wires your Google Calendar so bookings land live."
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Open source · Set up by Claude</p>
+  <h1>The AI voice receptionist for law firms.</h1>
+  <p class="lede">A talking website widget plus an inbound and outbound phone agent that answers, qualifies the case, and <strong>books the consult while the person is still motivated</strong>, 24/7. Self-hosted, MIT licensed, and set up by talking to Claude.</p>
+  <div class="cta">
+    <a class="btn primary" href="https://github.com/redwoodmeridian/cicero">View on GitHub</a>
+    <a class="btn" href="#setup">How to set it up</a>
+    <a class="btn" href="#faq">FAQ</a>
+  </div>
+</header>
+
+<section id="what">
+  <h2>What Cicero does</h2>
+  <p>Most law firms lose leads the same way. A hurt, scared or time-pressed person lands on the website or calls after hours, and gets a contact form, a voicemail, or hold music.</p><p>Cicero answers. It talks like your best front-desk hire, works out whether it is a good-fit case, answers questions from a knowledge base built off your own site, and books the consultation onto your Google Calendar mid-conversation.</p><p>Named after history's greatest orator, which is fitting for something that argues your firm's case the moment a lead shows up.</p>
+  <h3>Things you can ask</h3>
+  <p class="ask">Set up my voice agent.</p>
+<p class="ask">Build a knowledge base from my firm's website.</p>
+<p class="ask">Put the talking widget on my WordPress site.</p>
+<p class="ask">Wire my Twilio number into the phone agent.</p>
+<p class="ask">Call this new lead back right now.</p>
+</section>
+
+<section id="setup">
+  <h2>How to set up an AI voice receptionist for your law firm</h2>
+  <p>Cicero ships with a <a href='https://claude.com/claude-code'>Claude Code</a> skill. Open the repo and say:</p><p class='ask'>Set up my voice agent.</p><p>Claude reads your website, asks what you want the agent to do, builds your knowledge base, deploys the widget, drops it onto your existing site, walks you through Twilio, and wires your calendar. If it does not know something about your firm, it asks.</p><p>Manual path:</p><pre>git clone https://github.com/redwoodmeridian/cicero
+cd cicero
+cp .env.example .env             # xAI + Google (+ Twilio) keys
+$EDITOR firm.config.json         # describe your firm
+node kit/scripts/apply-config.mjs
+node kit/scripts/setup-kb.mjs    # build the knowledge base
+cd kit/web &amp;&amp; vercel --prod       # deploy the talking website</pre><p>Then add it to any site (WordPress, Squarespace, Wix, Webflow or raw HTML) with one line:</p><pre>&lt;script src="https://your-deploy/embed.js" defer&gt;&lt;/script&gt;</pre>
+</section>
+
+<section id="inside">
+  <h2>What's inside the repo</h2>
+  <div class="tw"><table>
+    <thead><tr><th>Component</th><th>What it does</th></tr></thead>
+    <tbody>
+<tr><td><code>kit/web</code></td><td>The talking website widget and demo page. Next.js, deploys to Vercel or Railway.</td></tr>
+<tr><td><code>kit/bridge</code></td><td>The phone bridge — inbound and outbound calls via Twilio.</td></tr>
+<tr><td><code>kit/scripts</code></td><td>Config apply, knowledge-base build, voice list, outbound call.</td></tr>
+<tr><td><code>.claude/skills/voice-agent-setup/</code></td><td>The Claude Code skill that sets the whole thing up for you.</td></tr>
+<tr><td><code>firm.config.json</code></td><td>One file describing your firm. Everything else reads from it.</td></tr>
+<tr><td><code>docs/</code></td><td>Setup, web, phone, calendar, voice and embed guides.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="faq">
+  <h2>Frequently asked questions</h2>
+<details><summary>What is an AI voice receptionist for a law firm?</summary><p>It is software that answers your firm's calls and website visitors with a natural spoken conversation, qualifies whether the matter is a good fit, answers questions about fees and practice areas, and books the consultation onto your calendar, without a human picking up. Cicero is an open-source implementation you host yourself.</p></details>
+<details><summary>Can it book appointments directly to my calendar?</summary><p>Yes. Appointments appear on your Google Calendar during the conversation. There is no form to fill in afterwards and no manual follow-up step.</p></details>
+<details><summary>Does it work on WordPress, Squarespace or Wix?</summary><p>Yes, on any site. The widget is a single script tag you paste into your existing site: WordPress, Squarespace, Wix, Webflow or plain HTML. No replatforming.</p></details>
+<details><summary>Can it call leads back automatically?</summary><p>Yes. When a new lead comes in, the outbound agent can call them back within seconds, while they are still warm and still on your site.</p></details>
+<details><summary>Where does my data live?</summary><p>Cicero is self-hosted. You deploy it to your own Vercel, Railway or Render account with your own API keys, and the keys never touch the browser. Nothing routes through a vendor's platform.</p></details>
+<details><summary>What does Cicero cost?</summary><p>The software is free and MIT licensed. You pay only your own usage costs for the voice model, Twilio numbers and minutes, and hosting.</p></details>
+<details><summary>Who made Cicero?</summary><p>Irfad Imtiaz, Director of Technology at My Legal Academy, built and maintains it. My Legal Academy publishes it.</p></details>
+</section>
+
+<section id="author">
+  <div class="author">
+    <h2>Who built Cicero</h2>
+    <p><strong>Irfad Imtiaz</strong> built and maintains Cicero.
+    He is Director of Technology at <a href="https://mylegalacademy.com">My Legal Academy</a>, which publishes this kit and uses it with the law firms it works with. My Legal Academy trains firm owners to run their practice with AI through its AI Labs program and done-for-you build engagements.</p>
+    <p>Find him on
+    <a href="https://www.linkedin.com/in/irfadimtiaz/" rel="me">LinkedIn</a> and
+    <a href="https://github.com/irfad7" rel="me">GitHub</a>.</p>
+  </div>
+</section>
+
+<section id="more">
+  <h2>More open-source kits by Irfad Imtiaz</h2>
+  <div class="sib">
+<a href="https://redwoodmeridian.github.io/nexus-for-meta/"><b>Nexus for Meta</b><span>Ask Claude about your Facebook Ads, Pages, Instagram and lead forms.</span></a>
+<a href="https://redwoodmeridian.github.io/ep-legal-mcps/"><b>Estate Planning Legal MCPs</b><span>MCP servers for Lawmatics, DecisionVault and WealthCounsel.</span></a>
+<a href="https://redwoodmeridian.github.io/ranql-skills/"><b>Ranql Skills</b><span>Claude Code plugin that runs a law firm's marketing operation.</span></a>
+<a href="https://irfad7.github.io/claude-power-skills/"><b>Claude Power Skills</b><span>20 power-user skills that upgrade Claude Code for real engineering.</span></a>
+  </div>
+</section>
+
+<footer>
+  <p>Cicero is released under the MIT License.
+  Built by <a href="https://github.com/irfad7">Irfad Imtiaz</a> at <a href="https://mylegalacademy.com">My Legal Academy</a>.</p>
+  <p>Machine-readable summary for AI assistants:
+  <a href="https://redwoodmeridian.github.io/cicero/llms.txt">llms.txt</a></p>
+</footer>
+
+</div>
+</body>
+</html>

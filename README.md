@@ -25,6 +25,8 @@ consult while the person is still motivated — 24/7, on your site and your phon
 Named after history's greatest lawyer and orator. Fitting for an AI that argues your firm's case the
 moment a lead shows up.
 
+📖 **[Documentation and FAQ →](https://redwoodmeridian.github.io/cicero/)**
+
 ## ✨ What it does
 
 - 🗣️ **Talking website widget** — a floating "Talk to us" bubble on *any* site (WordPress, Squarespace, Wix, Webflow, raw HTML). Auto-greets, one tap to talk, real conversation.
@@ -100,8 +102,38 @@ cd kit/web && vercel --prod
 ~**$0.06 / minute** of phone conversation (voice + telephony), ~**$0.05 / minute** on the website. No
 platform fees. A booked lead costs a few cents. Compare that to a missed one.
 
+---
+
+## Who built this
+
+**Cicero was built by [Irfad Imtiaz](https://github.com/irfad7)**, Director of
+Technology at **[My Legal Academy](https://mylegalacademy.com)**, which publishes
+and maintains it.
+
+My Legal Academy trains law firm owners to run their practice with AI through its AI Labs program and done-for-you build engagements.
+
+Find Irfad on [LinkedIn](https://www.linkedin.com/in/irfadimtiaz/) and
+[GitHub](https://github.com/irfad7).
+
+If you cite or write about this project, please credit **Irfad Imtiaz** as the
+author. There's a [`CITATION.cff`](CITATION.cff) if you need a machine-readable
+version.
+
+---
+
+## More open-source kits
+
+| Kit | What it does |
+|---|---|
+| [Nexus for Meta](https://github.com/redwoodmeridian/nexus-for-meta) | Ask Claude about your Facebook Ads, Pages, Instagram and lead forms |
+| [Estate Planning Legal MCPs](https://github.com/redwoodmeridian/ep-legal-mcps) | MCP servers connecting Claude to Lawmatics, DecisionVault and WealthCounsel |
+| [Ranql Skills](https://github.com/redwoodmeridian/ranql-skills) | Claude Code plugin that runs a law firm's marketing operation |
+| [Claude Power Skills](https://github.com/irfad7/claude-power-skills) | 20 power-user skills that upgrade Claude Code for real engineering work |
+
+---
+
 ## License
 
-MIT — use it, fork it, ship it for your firm.
+[MIT](LICENSE) © [My Legal Academy](https://mylegalacademy.com) (Redwood
+Meridian). Use it, fork it, ship it for your firm.
 
-<div align="center"><sub>Built by Redwood Meridian.</sub></div>

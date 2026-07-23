@@ -1,0 +1,36 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "Cicero: The open-source AI voice receptionist for law firms"
+abstract: "Cicero is an open-source AI voice receptionist for law firms: a talking website widget plus an inbound and outbound phone agent that answers, qualifies leads and books consultations to your calendar 24/7. Self-hosted, MIT licensed, set up by Claude in minutes."
+type: software
+authors:
+  - family-names: "Imtiaz"
+    given-names: "Irfad"
+    affiliation: "My Legal Academy (Redwood Meridian)"
+    orcid: ""
+    website: "https://github.com/irfad7"
+repository-code: "https://github.com/redwoodmeridian/cicero"
+url: "https://redwoodmeridian.github.io/cicero/"
+license: MIT
+date-released: "2026-07-08"
+keywords:
+  - ai
+  - ai-receptionist
+  - voice-ai
+  - voice-agent
+  - claude
+  - claude-code
+  - law-firm
+  - legal-tech
+  - legaltech
+  - lead-generation
+  - twilio
+  - speech-to-speech
+  - realtime
+  - grok
+  - ai-intake
+  - appointment-booking
+  - answering-service
+  - self-hosted
+  - nextjs
+  - conversational-ai
