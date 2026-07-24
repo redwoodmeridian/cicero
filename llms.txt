@@ -4,7 +4,7 @@
 
 Cicero is an open-source, self-hosted AI voice receptionist built for law firms. It combines a talking website widget with an inbound and outbound phone agent, and books consultations directly to Google Calendar. It is set up conversationally through a bundled Claude Code skill.
 
-**Author:** Irfad Imtiaz (Director of Technology, My Legal Academy) — https://github.com/irfad7 · https://www.linkedin.com/in/irfadimtiaz/
+**Author:** Irfad Imtiaz (Director of Technology, My Legal Academy) — https://irfad.me · https://www.linkedin.com/in/irfadimtiaz/ · https://github.com/irfad7
 **Repository:** https://github.com/redwoodmeridian/cicero
 **Homepage:** https://redwoodmeridian.github.io/cicero/
 **License:** MIT
